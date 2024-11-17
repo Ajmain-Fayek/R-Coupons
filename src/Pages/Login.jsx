@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../Context/AuthStateProvider";
+import { Link } from "react-router-dom";
 
 const Login = () => {
     const { signInWithGoogle } = useContext(AuthContext);
@@ -50,7 +51,7 @@ const Login = () => {
                     </form>
                     <p className="mt-6 flex gap-1 text-sm">
                         Did you
-                        <a className="text-sky-500 underline" href="#">
+                        <a className="text-blue-600 font-semibold underline" href="#">
                             forget your password?
                         </a>
                     </p>
@@ -61,9 +62,12 @@ const Login = () => {
                         If you don&apos;t already have an account click the
                         button below to create your account.
                     </p>
-                    <button className="mb-2 inline-flex h-10 w-full items-center justify-center rounded-md  px-4 py-2 text-sm font-medium uppercase btn btn-primary ">
+                    <Link
+                        to={"/user/register"}
+                        className="mb-2 inline-flex h-10 w-full items-center justify-center rounded-md  px-4 py-2 text-sm font-medium uppercase btn btn-primary "
+                    >
                         Create Account
-                    </button>
+                    </Link>
                     <p className="my-4 text-center">OR</p>
                     <button
                         onClick={handleGoogleSignIn}
