@@ -2,20 +2,26 @@ import React, { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { IoLogoFacebook } from "react-icons/io";
 import { AuthContext } from "../Context/AuthStateProvider";
+import { BsTwitterX } from "react-icons/bs";
+import { FaGithub } from "react-icons/fa";
 
 const Login = () => {
-    const { signInWithFacebook } = useContext(AuthContext)
+    const { signInWithFacebook, signInWithGoogle } = useContext(AuthContext);
 
     // Sign in with ** EMAIL & PASS **
     const handleSignIn = (event) => {
         event.preventDefault();
-    }
-    
+    };
+
     //Sign in With **FACEBOOK**
-    const handleFacebookSinIn = () => {
-        signInWithFacebook()
-            .then(res => console.log(res));
-    }
+    const handleFacebookSignIn = () => {
+        signInWithFacebook().then((res) => console.log(res.user));
+    };
+
+    //Sign in With **GOOGLE**
+    const handleGoogleSignIn = () => {
+        signInWithGoogle().then((res) => console.log(res.user));
+    };
     return (
         <div className="max-w-screen-lg mx-auto p-6 sm:mt-24 mt-6 sm:px-8 sm:py-10 lg:px-12 lg:py-16">
             <div className="flex flex-col justify-between space-x-0 sm:flex-row sm:space-x-12">
@@ -68,15 +74,32 @@ const Login = () => {
                     </button>
                     <p className="my-4 text-center">OR</p>
                     <button
-                        onClick={handleFacebookSinIn}
+                        onClick={handleFacebookSignIn}
                         className="mb-2 flex h-10 w-full items-center justify-center gap-1 rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white"
                     >
                         <IoLogoFacebook style={{ fontSize: "1.25rem" }} />
                         SIGN IN WITH FACEBOOK
                     </button>
-                    <button className="flex h-10 w-full items-center justify-center gap-1 rounded-md border bg-base-200 px-4 py-2 text-sm font-medium">
+                    <button
+                        onClick={handleGoogleSignIn}
+                        className="mb-2 flex h-10 w-full items-center justify-center gap-1 rounded-md border bg-base-200 px-4 py-2 text-sm font-medium"
+                    >
                         <FcGoogle style={{ fontSize: "1.25rem" }} />
                         SIGN IN WITH GOOGLE
+                    </button>
+                    <button
+                        onClick={handleGoogleSignIn}
+                        className="mb-2 flex h-10 w-full items-center justify-center gap-1 rounded-md border bg-base-200 px-4 py-2 text-sm font-medium"
+                    >
+                        <FaGithub style={{ fontSize: "1rem" }} />
+                        SIGN IN WITH GITHUB
+                    </button>
+                    <button
+                        onClick={handleGoogleSignIn}
+                        className="mb-2 flex h-10 w-full items-center justify-center gap-1 rounded-md border bg-base-200 px-4 py-2 text-sm font-medium"
+                    >
+                        <BsTwitterX style={{ fontSize: "1rem" }} />
+                        SIGN IN WITH X
                     </button>
                 </div>
             </div>
