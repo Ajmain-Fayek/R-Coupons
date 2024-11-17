@@ -1,21 +1,13 @@
 import React, { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { IoLogoFacebook } from "react-icons/io";
 import { AuthContext } from "../Context/AuthStateProvider";
-import { BsTwitterX } from "react-icons/bs";
-import { FaGithub } from "react-icons/fa";
 
 const Login = () => {
-    const { signInWithFacebook, signInWithGoogle } = useContext(AuthContext);
+    const { signInWithGoogle } = useContext(AuthContext);
 
     // Sign in with ** EMAIL & PASS **
     const handleSignIn = (event) => {
-        event.preventDefault();
-    };
-
-    //Sign in With **FACEBOOK**
-    const handleFacebookSignIn = () => {
-        signInWithFacebook().then((res) => console.log(res.user));
+        // event.preventDefault();
     };
 
     //Sign in With **GOOGLE**
@@ -53,7 +45,7 @@ const Login = () => {
                             </label>
                         </div>
                         <button className="inline-flex h-10 w-full items-center justify-center rounded-md btn btn-neutral px-4 py-2 text-sm font-medium uppercase ">
-                            Submit
+                            Sign In
                         </button>
                     </form>
                     <p className="mt-6 flex gap-1 text-sm">
@@ -65,7 +57,7 @@ const Login = () => {
                 </div>
                 {/* Right side content */}
                 <div className="w-full sm:w-1/2">
-                    <p className="mb-6 text-sm">
+                    <p className="mb-6  text-sm">
                         If you don&apos;t already have an account click the
                         button below to create your account.
                     </p>
@@ -74,32 +66,11 @@ const Login = () => {
                     </button>
                     <p className="my-4 text-center">OR</p>
                     <button
-                        onClick={handleFacebookSignIn}
-                        className="mb-2 flex h-10 w-full items-center justify-center gap-1 rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white"
-                    >
-                        <IoLogoFacebook style={{ fontSize: "1.25rem" }} />
-                        SIGN IN WITH FACEBOOK
-                    </button>
-                    <button
                         onClick={handleGoogleSignIn}
-                        className="mb-2 flex h-10 w-full items-center justify-center gap-1 rounded-md border bg-base-200 px-4 py-2 text-sm font-medium"
+                        className="mb-2 btn flex h-10 w-full items-center justify-center gap-1 rounded-md border border-gray-200 bg-base-200 px-4 py-2 text-sm font-medium"
                     >
                         <FcGoogle style={{ fontSize: "1.25rem" }} />
                         SIGN IN WITH GOOGLE
-                    </button>
-                    <button
-                        onClick={handleGoogleSignIn}
-                        className="mb-2 flex h-10 w-full items-center justify-center gap-1 rounded-md border bg-base-200 px-4 py-2 text-sm font-medium"
-                    >
-                        <FaGithub style={{ fontSize: "1rem" }} />
-                        SIGN IN WITH GITHUB
-                    </button>
-                    <button
-                        onClick={handleGoogleSignIn}
-                        className="mb-2 flex h-10 w-full items-center justify-center gap-1 rounded-md border bg-base-200 px-4 py-2 text-sm font-medium"
-                    >
-                        <BsTwitterX style={{ fontSize: "1rem" }} />
-                        SIGN IN WITH X
                     </button>
                 </div>
             </div>
