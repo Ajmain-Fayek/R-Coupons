@@ -1,9 +1,12 @@
-import React, { createContext } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import {
     createUserWithEmailAndPassword,
     deleteUser,
     GoogleAuthProvider,
+    onAuthStateChanged,
+    signInWithEmailAndPassword,
     signInWithPopup,
+    signOut,
     updateProfile,
 } from "firebase/auth";
 import auth from "../Firebase/firebase.config";
@@ -14,9 +17,16 @@ export const AuthContext = createContext(null);
 const googleProvider = new GoogleAuthProvider();
 
 const AuthStateProvider = ({ children }) => {
-    // Sign in with **EMAIL & PASSWORD**
+    const [user, setUser] = useState(null);
+
+    // Sign Up with **EMAIL & PASSWORD**
     const signUpWithEmailAndPassword = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password);
+    };
+
+    // Sign in with **EMAIL & PASSWORD**
+    const signInUser = (email, password) => {
+        return signInWithEmailAndPassword(auth, email, password);
     };
 
     // Sign in with **GOOGLE**
@@ -29,15 +39,33 @@ const AuthStateProvider = ({ children }) => {
         return updateProfile(auth.currentUser, obj);
     };
 
+    // Sign Out User
+    const logOutUser = () => {
+        return signOut(auth);
+    };
+
     // DELETE User Account
     const deleteAccount = () => {
         return deleteUser(auth.currentUser);
-    }
+    };
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+            console.log(currentUser);
+        });
+
+        return () => unsubscribe();
+    });
     const authInfo = {
         signUpWithEmailAndPassword,
         signInWithGoogle,
         updateUserInfo,
         deleteAccount,
+        setUser,
+        logOutUser,
+        signInUser,
+        user,
     };
 
     return (

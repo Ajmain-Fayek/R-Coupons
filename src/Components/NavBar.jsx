@@ -1,13 +1,22 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/favicon.png";
 import { MdOutlineLogin, MdOutlineLogout } from "react-icons/md";
+import demo from "../assets/Humaaans - Standing (1).png";
+import { AuthContext } from "../Context/AuthStateProvider";
 
 const NavBar = () => {
+    const { user, logOutUser } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    // Sign Out
+    const handleSignOut = () => {
+        logOutUser().then(() => navigate("/"));
+    };
     return (
-        <div className="bg-pink-100">
+        <div className="bg-pink-100 z-50 sticky top-0">
             <nav className="flex max-w-screen-2xl items-center justify-between px-2 py-2 mx-auto">
-                <div className="flex items-center gap-1.5">
+                <div onClick={() =>  navigate('/')} className="flex items-center gap-1.5 cursor-pointer">
                     <img
                         src={logo}
                         className="h-10 w-10 rounded-lg shadow-lg"
@@ -30,17 +39,27 @@ const NavBar = () => {
                     </li>
                 </ul>
                 <div className="flex items-center gap-2">
-                    <img
-                        src=""
-                        className=" h-8 w-8 bg-base-300 rounded-full"
-                        alt=""
-                    />
-                    <Link to={"user/login"}>
-                        <MdOutlineLogin />
+                    <Link className="border rounded-full border-red-300 shadow-md" to={user ? "/profile" : "/user/login"}>
+                        <img
+                            src={
+                                user
+                                    ? user.photoURL
+                                        ? user.photoURL
+                                        : demo
+                                    : demo
+                            }
+                            className=" h-8 w-8 bg-base-300 rounded-full"
+                        />
                     </Link>
-                    <Link>
-                        <MdOutlineLogout />
-                    </Link>
+                    {user ? (
+                        <Link onClick={handleSignOut} title="Sign Out">
+                            <MdOutlineLogout />
+                        </Link>
+                    ) : (
+                        <Link title="Sign In" to={"user/login"}>
+                            <MdOutlineLogin />
+                        </Link>
+                    )}
                 </div>
             </nav>
         </div>

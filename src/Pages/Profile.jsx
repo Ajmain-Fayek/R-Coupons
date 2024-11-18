@@ -6,31 +6,37 @@ import {
     FaLinkedin,
 } from "react-icons/fa";
 import { AuthContext } from "../Context/AuthStateProvider";
+import { Helmet } from "react-helmet-async";
+import demo from "../assets/Humaaans - Standing (1).png";
 
 const Profile = () => {
     const [openModal, setOpenModal] = useState(false);
-    const { deleteAccount } = useContext(AuthContext)
+    const { deleteAccount, user } = useContext(AuthContext);
     // Delete Account
     const handleDeleteAcc = () => {
         deleteAccount();
         setOpenModal(false);
-    }
+    };
     return (
         <div className="flex mx-auto sm:mt-10 max-w-[350px] flex-col items-center justify-center space-y-4 p-8">
+            <Helmet>
+                <title>
+                    Profile | {user ? `${user.displayName}` : "R Coupons"}
+                </title>
+            </Helmet>
             <div className="group relative">
                 <img
                     width={110}
                     height={110}
                     className="h-[110px] w-[110px] rounded-full bg-slate-500 object-cover"
-                    src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=2080&auto=format&fit=crop"
+                    src={user ? (user.photoURL ? user.photoURL : demo) : demo}
                     alt="card navigate ui"
                 />
                 <span className="absolute bottom-3 right-0 h-5 w-5 rounded-full border-[3px] border-base-100 bg-green-500"></span>
             </div>
             {/* Name and Title */}
             <div className="space-y-1 text-center">
-                <h1 className="text-2xl text-gray-700">Nullify</h1>
-                <p className="text-sm text-gray-400">UI/UX Designer</p>
+                <h1 className="text-2xl text-gray-700">{user.displayName}</h1>
             </div>
 
             {/* bio  */}

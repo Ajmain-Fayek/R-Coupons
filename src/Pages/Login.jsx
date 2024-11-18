@@ -1,22 +1,49 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../Context/AuthStateProvider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
-    const { signInWithGoogle } = useContext(AuthContext);
+    const { signInWithGoogle, signInUser } = useContext(AuthContext);
+    const [errorMsg, setErrorMsg] = useState("");
+    const [errorMsgGoogle, setErrorMsgGoogle] = useState("");
+    const navigate = useNavigate();
 
     // Sign in with ** EMAIL & PASS **
     const handleSignIn = (event) => {
         event.preventDefault();
+        const email = event.target.email.value;
+        const password = event.target.password.value;
+
+        // Clear Previous Error Message
+        setErrorMsg("");
+
+        // Sign in User
+        signInUser(email, password)
+            .then(() => navigate("/"))
+            .catch((err) => {
+                const msg = err.message.match(/\(([^)]+)\)/);
+                if (msg) return setErrorMsg(msg[1]);
+            });
     };
 
     //Sign in With **GOOGLE**
     const handleGoogleSignIn = () => {
-        signInWithGoogle().then((res) => console.log(res.user));
+        // Clear Previus Error Message
+        setErrorMsgGoogle("");
+        signInWithGoogle()
+            .then(() => navigate("/"))
+            .catch((err) => {
+                const msg = err.message.match(/\(([^)]+)\)/);
+                if (msg) return setErrorMsgGoogle(msg[1]);
+            });
     };
     return (
         <div className="max-w-screen-lg mx-auto p-6 sm:mt-24 mt-6 sm:px-8 sm:py-10 lg:px-12 lg:py-16">
+            <Helmet>
+                <title>Login | R Coupons</title>
+            </Helmet>
             <div className="flex flex-col justify-between space-x-0 sm:flex-row sm:space-x-12">
                 <div className="mb-8 w-full sm:mb-0 sm:w-1/2">
                     {/* Left side form */}
@@ -29,15 +56,21 @@ const Login = () => {
                                 className="flex h-10 w-full rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-1"
                                 placeholder="Username"
                                 type="text"
+                                name="email"
                             />
                             <input
                                 className="flex h-10 w-full rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-1"
                                 placeholder="Password"
                                 type="password"
+                                name="password"
                             />
                         </div>
                         <div className="mb-6 flex items-center space-x-2 accent-sky-600">
-                            <input type="checkbox" id="keep_signed_in" />
+                            <input
+                                name="remember"
+                                type="checkbox"
+                                id="keep_signed_in"
+                            />
                             <label
                                 className="select-none text-sm font-medium"
                                 htmlFor="keep_signed_in"
@@ -58,6 +91,12 @@ const Login = () => {
                             forget your password?
                         </a>
                     </p>
+                    {/* Error */}
+                    {errorMsg && (
+                        <p className="text-red-700 mt-4 bg-red-50 border border-red-100 px-4 py-1 w-fit rounded-md">
+                            {errorMsg}
+                        </p>
+                    )}
                 </div>
                 {/* Right side content */}
                 <div className="w-full sm:w-1/2">
@@ -79,6 +118,12 @@ const Login = () => {
                         <FcGoogle style={{ fontSize: "1.25rem" }} />
                         SIGN IN WITH GOOGLE
                     </button>
+                    {/* Error */}
+                    {errorMsgGoogle && (
+                        <p className="text-red-700 bg-red-50 border border-red-100 px-4 py-1 w-fit rounded-md">
+                            {errorMsgGoogle}
+                        </p>
+                    )}
                 </div>
             </div>
         </div>
