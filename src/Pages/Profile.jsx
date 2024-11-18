@@ -8,14 +8,17 @@ import {
 import { AuthContext } from "../Context/AuthStateProvider";
 import { Helmet } from "react-helmet-async";
 import demo from "../assets/Humaaans - Standing (1).png";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
     const [openModal, setOpenModal] = useState(false);
     const { deleteAccount, user } = useContext(AuthContext);
+    const navigate = useNavigate()
     // Delete Account
     const handleDeleteAcc = () => {
         deleteAccount();
         setOpenModal(false);
+        navigate('/')
     };
     return (
         <div className="flex mx-auto sm:mt-10 max-w-[350px] flex-col items-center justify-center space-y-4 p-8">
