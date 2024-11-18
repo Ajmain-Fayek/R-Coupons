@@ -1,7 +1,54 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { AuthContext } from "../Context/AuthStateProvider";
 
 const Register = () => {
+    const { signUpWithEmailAndPassword, updateUserInfo } =
+        useContext(AuthContext);
+    const [errorMsg, setErrorMsg] = useState("");
+    const navigate = useLocation();
+
+    // Register user
+    const handleRegister = (e) => {
+        e.preventDefault();
+        const firstName = e.target.firstName.value;
+        const LastName = e.target.lastName.value;
+        const name = firstName + " " + LastName;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        const terms = e.target.terms.checked;
+        const photoURL = e.target.photoUrl.value;
+
+        // Clear Previous Error messages
+        setErrorMsg("");
+
+        // Password validation
+        const regexUpperCase = /(?=.*[A-Z])/;
+        const regexLowerCase = /(?=.*[a-z])/;
+        const regexLength = /.{6,}/;
+        if (!regexUpperCase.test(password)) {
+            return setErrorMsg("Password Must Contain an UpperCase letter A-Z");
+        }
+        if (!regexLowerCase.test(password)) {
+            return setErrorMsg("Password Must Contain an LowerCase letter a-z");
+        }
+        if (!regexLength.test(password)) {
+            return setErrorMsg("Password Must be at least 6 Character long");
+        }
+        if (!terms) return setErrorMsg("Accept Terms And Conditions!");
+            // Create User
+            signUpWithEmailAndPassword(email, password)
+                .then(() => {
+                    if (photoURL) {
+                        updateUserInfo({ displayName: name, photoURL });
+                    }
+                    return navigate("/user/login");
+                })
+                .catch((err) => {
+                    const msg = err.message.match(/\(([^)]+)\)/);
+                    if (msg) return setErrorMsg(msg[1]);
+                });
+    };
     return (
         <div className="max-w-md mx-auto mt-6 space-y-6 rounded-lg p-10">
             <div className="flex flex-col space-y-1">
@@ -11,7 +58,7 @@ const Register = () => {
                 </p>
             </div>
             <div>
-                <form className="space-y-6">
+                <form onSubmit={handleRegister} className="space-y-6">
                     <div className="grid sm:grid-cols-2 gap-4 grid-cols-1">
                         <div className="space-y-2 text-sm">
                             <label
@@ -24,8 +71,9 @@ const Register = () => {
                                 className="flex h-10 w-full rounded-md border px-3 py-2  focus-visible:outline-none"
                                 id="first_name"
                                 placeholder="Enter first name"
-                                name="first_name"
+                                name="firstName"
                                 type="text"
+                                required
                             />
                         </div>
                         <div className="space-y-2 text-sm">
@@ -39,7 +87,7 @@ const Register = () => {
                                 className="flex h-10 w-full rounded-md border px-3 py-2  focus-visible:outline-none"
                                 id="last_name"
                                 placeholder="Enter last name"
-                                name="last_name"
+                                name="lastName"
                                 type="text"
                             />
                         </div>
@@ -54,8 +102,8 @@ const Register = () => {
                         <input
                             className="flex h-10 w-full rounded-md border px-3 py-2  focus-visible:outline-none"
                             id="profile_pic"
-                            placeholder="Enter your email"
-                            name="profile_pic"
+                            placeholder="Enter a Photo URL"
+                            name="photoUrl"
                             type="url"
                         />
                     </div>
@@ -72,6 +120,7 @@ const Register = () => {
                             placeholder="Enter your email"
                             name="email"
                             type="email"
+                            required
                         />
                     </div>
                     <div className="space-y-2 text-sm">
@@ -87,13 +136,35 @@ const Register = () => {
                             placeholder="password"
                             name="password"
                             type="password"
+                            required
                         />
                     </div>
-                    <button className="rounded-md btn btn-neutral ">
+                    <div className="mb-6 flex items-center space-x-2 accent-sky-600">
+                        <input
+                            name="terms"
+                            type="checkbox"
+                            id="termsAndConditons"
+                        />
+                        <label
+                            className="select-none text-sm font-medium"
+                            htmlFor="termsAndConditons"
+                        >
+                            I accept all terms and conditions.
+                        </label>
+                    </div>
+                    <button
+                        type="submit"
+                        className="rounded-md btn btn-neutral "
+                    >
                         Register
                     </button>
                 </form>
             </div>
+            {errorMsg && (
+                <p className="text-red-700 bg-red-50 border border-red-100 px-4 py-1 w-fit rounded-md">
+                    {errorMsg}
+                </p>
+            )}
             <p>
                 Already have an account?{" "}
                 <Link

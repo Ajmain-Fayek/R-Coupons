@@ -8,7 +8,7 @@ const Login = () => {
 
     // Sign in with ** EMAIL & PASS **
     const handleSignIn = (event) => {
-        // event.preventDefault();
+        event.preventDefault();
     };
 
     //Sign in With **GOOGLE**
@@ -23,7 +23,7 @@ const Login = () => {
                     <h2 className="mb-6 text-3xl font-semibold tracking-tight">
                         Sign In
                     </h2>
-                    <form onClick={handleSignIn}>
+                    <form onSubmit={handleSignIn}>
                         <div className="mb-4 flex flex-col space-y-4">
                             <input
                                 className="flex h-10 w-full rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-1"
@@ -51,7 +51,10 @@ const Login = () => {
                     </form>
                     <p className="mt-6 flex gap-1 text-sm">
                         Did you
-                        <a className="text-blue-600 font-semibold underline" href="#">
+                        <a
+                            className="text-blue-600 font-semibold underline"
+                            href="#"
+                        >
                             forget your password?
                         </a>
                     </p>
