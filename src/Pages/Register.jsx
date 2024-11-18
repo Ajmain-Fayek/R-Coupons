@@ -1,12 +1,12 @@
 import React, { useContext, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthStateProvider";
 
 const Register = () => {
     const { signUpWithEmailAndPassword, updateUserInfo } =
         useContext(AuthContext);
     const [errorMsg, setErrorMsg] = useState("");
-    const navigate = useLocation();
+    const navigate = useNavigate();
 
     // Register user
     const handleRegister = (e) => {
@@ -42,7 +42,7 @@ const Register = () => {
                     if (photoURL) {
                         updateUserInfo({ displayName: name, photoURL });
                     }
-                    return navigate("/user/login");
+                    navigate("/user/login");
                 })
                 .catch((err) => {
                     const msg = err.message.match(/\(([^)]+)\)/);

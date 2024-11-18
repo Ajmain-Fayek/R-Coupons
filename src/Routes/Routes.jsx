@@ -4,11 +4,22 @@ import Register from "../Pages/Register";
 import LoginRegisterLayout from "../Layouts/LoginRegisterLayout";
 import Home from "../Pages/Home";
 import Profile from "../Pages/Profile";
+import HomeLayout from "../Layouts/HomeLayout";
 
 const routes = new createBrowserRouter([
     {
         path: "/",
-        element: <Home />,
+        element: <HomeLayout />,
+        children: [
+            {
+                path: "/",
+                element: <Home/>
+        },
+            {
+                path: "/profile",
+                element: <Profile />,
+            },
+        ],
     },
     {
         path: "/user",
@@ -23,10 +34,6 @@ const routes = new createBrowserRouter([
                 element: <Register />,
             },
         ],
-    },
-    {
-        path: "/profile",
-        element: <Profile/>
     },
     {
         path: "*",
