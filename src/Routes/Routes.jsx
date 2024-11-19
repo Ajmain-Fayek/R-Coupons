@@ -10,11 +10,17 @@ import Brands from "../Pages/Brands";
 import MyCoupons from "../Pages/MyCoupons";
 import UpdateProfile from "../Pages/UpdateProfile";
 import AboutDev from "../Pages/AboutDev";
+import ErrorPage from "../Pages/ErrorPage";
 
 const routes = new createBrowserRouter([
     {
+        path: "/error-occured",
+        errorElement: <ErrorPage/>
+    },
+    {
         path: "/",
         element: <HomeLayout />,
+        errorElement: <ErrorPage/>,
         children: [
             {
                 path: "/",
@@ -65,6 +71,7 @@ const routes = new createBrowserRouter([
     {
         path: "/user",
         element: <LoginRegisterLayout />,
+        // errorElement: <ErrorPage/>,
         children: [
             {
                 path: "/user/login",
@@ -76,10 +83,10 @@ const routes = new createBrowserRouter([
             },
         ],
     },
-    {
-        path: "*",
-        element: <Navigate to={"/user/login"} />,
-    },
+    // {
+    //     path: "*",
+    //     element: <Navigate to={"/user/login"} />,
+    // },
 ]);
 
 export default routes;

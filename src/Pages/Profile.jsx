@@ -30,7 +30,7 @@ const Profile = () => {
         navigate("/update-profile");
     };
     return (
-        <div>
+        <div className="mb-28">
             <Helmet>
                 <title>
                     My Profile | {user ? `${user.displayName}` : "R Coupons"}

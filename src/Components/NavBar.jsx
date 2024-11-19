@@ -64,7 +64,7 @@ const NavBar = () => {
                             <MdOutlineLogout style={{ fontSize: "1.5rem" }} />
                         </Link>
                     ) : (
-                        <Link title="Sign In" to={"user/login"}>
+                        <Link title="Sign In" to={"/user/login"}>
                             <MdOutlineLogin style={{ fontSize: "1.5rem" }} />
                         </Link>
                     )}

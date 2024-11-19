@@ -1,6 +1,7 @@
 import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import NavBar from "../Components/NavBar";
+import Footer from "../Components/Footer";
 
 const LoginRegisterLayout = () => {
     return (
@@ -8,6 +9,7 @@ const LoginRegisterLayout = () => {
             <Navigate to={"/user/login"} />
             <NavBar/>
             <Outlet />
+            <Footer/>
         </div>
     );
 };

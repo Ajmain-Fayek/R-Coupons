@@ -50,7 +50,7 @@ const Register = () => {
             });
     };
     return (
-        <div className="max-w-md mx-auto mt-6 space-y-6 rounded-lg p-10">
+        <div className="max-w-md mx-auto space-y-6 rounded-lg mb-28 p-10">
             <div className="flex flex-col space-y-1">
                 <h3 className="text-3xl font-bold tracking-tight">Sign Up</h3>
                 <p className="text-sm text-zinc-500 400">

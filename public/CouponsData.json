@@ -1,0 +1,522 @@
+[
+    {
+        "_id": "1",
+        "brand_name": "TechWear",
+        "rating": 4.5,
+        "description": "Affordable and stylish wearable tech.",
+        "brand_logo": "https://techwear.com/wp-content/uploads/2018/05/logo.png",
+        "coupons": [
+            {
+                "coupon_code": "TW20OFF",
+                "description": "Get 20% off on all smartwatches.",
+                "expiry_date": "2024-12-31",
+                "condition": "Minimum purchase of $50.",
+                "coupon_type": "percentage"
+            },
+            {
+                "coupon_code": "FREESHIP",
+                "description": "Free shipping on orders over $30.",
+                "expiry_date": "2024-12-15",
+                "condition": "Applies to standard shipping only.",
+                "coupon_type": "shipping"
+            }
+        ],
+        "shop_Link": "https://www.techwear.com",
+        "category": "Wearables",
+        "isSaleOn": true
+    },
+    {
+        "_id": "2",
+        "brand_name": "GadgetZone",
+        "rating": 4.2,
+        "description": "One-stop shop for the latest gadgets.",
+        "brand_logo": "https://example.com/logos/gadgetzone.png",
+        "coupons": [
+            {
+                "coupon_code": "GZ50",
+                "description": "Flat $50 off on orders above $500.",
+                "expiry_date": "2024-11-30",
+                "condition": "Valid only on electronics.",
+                "coupon_type": "flat"
+            },
+            {
+                "coupon_code": "NEW10",
+                "description": "10% off for new users.",
+                "expiry_date": "2025-01-31",
+                "condition": "First purchase only.",
+                "coupon_type": "percentage"
+            }
+        ],
+        "shop_Link": "https://www.gadgetzone.com",
+        "category": "Electronics",
+        "isSaleOn": false
+    },
+    {
+        "_id": "3",
+        "brand_name": "FashionTech",
+        "rating": 4.7,
+        "description": "High-end tech accessories for fashion enthusiasts.",
+        "brand_logo": "https://example.com/logos/fashiontech.png",
+        "coupons": [
+            {
+                "coupon_code": "FT15OFF",
+                "description": "15% off on luxury phone cases.",
+                "expiry_date": "2024-12-25",
+                "condition": "Valid on select items only.",
+                "coupon_type": "percentage"
+            },
+            {
+                "coupon_code": "BOGOCASE",
+                "description": "Buy one phone case, get one free.",
+                "expiry_date": "2024-11-30",
+                "condition": "Lowest-priced item free.",
+                "coupon_type": "bogo"
+            }
+        ],
+        "shop_Link": "https://www.fashiontech.com",
+        "category": "Accessories",
+        "isSaleOn": true
+    },
+    {
+        "_id": "4",
+        "brand_name": "SmartGizmo",
+        "rating": 4.3,
+        "description": "Innovative gadgets for daily life.",
+        "brand_logo": "https://example.com/logos/smartgizmo.png",
+        "coupons": [
+            {
+                "coupon_code": "SG10SAVE",
+                "description": "Save $10 on your first purchase.",
+                "expiry_date": "2025-01-01",
+                "condition": "No minimum purchase.",
+                "coupon_type": "flat"
+            },
+            {
+                "coupon_code": "HOLIDAY20",
+                "description": "20% off holiday specials.",
+                "expiry_date": "2024-12-31",
+                "condition": "Excludes clearance items.",
+                "coupon_type": "percentage"
+            }
+        ],
+        "shop_Link": "https://www.smartgizmo.com",
+        "category": "Gadgets",
+        "isSaleOn": true
+    },
+    {
+        "_id": "5",
+        "brand_name": "PhoneHub",
+        "rating": 4.6,
+        "description": "Latest smartphones and accessories.",
+        "brand_logo": "https://example.com/logos/phonehub.png",
+        "coupons": [
+            {
+                "coupon_code": "PH30OFF",
+                "description": "Get $30 off on all phones.",
+                "expiry_date": "2024-12-01",
+                "condition": "Minimum purchase of $300.",
+                "coupon_type": "flat"
+            },
+            {
+                "coupon_code": "FREECHARGER",
+                "description": "Free charger with phone purchase.",
+                "expiry_date": "2024-11-25",
+                "condition": "Valid on select phone models.",
+                "coupon_type": "gift"
+            }
+        ],
+        "shop_Link": "https://www.phonehub.com",
+        "category": "Smartphones",
+        "isSaleOn": false
+    },
+    {
+        "_id": "6",
+        "brand_name": "HomeTech",
+        "rating": 4.4,
+        "description": "Smart devices for your home.",
+        "brand_logo": "https://example.com/logos/hometech.png",
+        "coupons": [
+            {
+                "coupon_code": "HTSMART",
+                "description": "15% off on all smart home devices.",
+                "expiry_date": "2024-12-20",
+                "condition": "Valid on purchases over $100.",
+                "coupon_type": "percentage"
+            },
+            {
+                "coupon_code": "BUNDLE50",
+                "description": "Save $50 when you buy two or more devices.",
+                "expiry_date": "2024-12-15",
+                "condition": "Excludes refurbished items.",
+                "coupon_type": "flat"
+            }
+        ],
+        "shop_Link": "https://www.hometech.com",
+        "category": "Home Appliances",
+        "isSaleOn": true
+    },
+    {
+        "_id": "7",
+        "brand_name": "GameStore",
+        "rating": 4.8,
+        "description": "The best deals on gaming gear.",
+        "brand_logo": "https://example.com/logos/gamestore.png",
+        "coupons": [
+            {
+                "coupon_code": "GAMEON25",
+                "description": "25% off on select gaming consoles.",
+                "expiry_date": "2024-12-24",
+                "condition": "Limited stock available.",
+                "coupon_type": "percentage"
+            },
+            {
+                "coupon_code": "GAMERX",
+                "description": "Exclusive $100 off on high-end GPUs.",
+                "expiry_date": "2024-12-30",
+                "condition": "While supplies last.",
+                "coupon_type": "flat"
+            }
+        ],
+        "shop_Link": "https://www.gamestore.com",
+        "category": "Gaming",
+        "isSaleOn": true
+    },
+    {
+        "_id": "8",
+        "brand_name": "AudioWorld",
+        "rating": 4.5,
+        "description": "Superior sound at unbeatable prices.",
+        "brand_logo": "https://example.com/logos/audioworld.png",
+        "coupons": [
+            {
+                "coupon_code": "SOUND20",
+                "description": "20% off on all headphones.",
+                "expiry_date": "2024-12-10",
+                "condition": "No minimum purchase required.",
+                "coupon_type": "percentage"
+            },
+            {
+                "coupon_code": "FREESPEAKER",
+                "description": "Get a free Bluetooth speaker on orders over $150.",
+                "expiry_date": "2024-12-15",
+                "condition": "One per customer.",
+                "coupon_type": "gift"
+            }
+        ],
+        "shop_Link": "https://www.audioworld.com",
+        "category": "Audio",
+        "isSaleOn": false
+    },
+    {
+        "_id": "9",
+        "brand_name": "SmartHealth",
+        "rating": 4.3,
+        "description": "Tech-driven health products.",
+        "brand_logo": "https://example.com/logos/smarthealth.png",
+        "coupons": [
+            {
+                "coupon_code": "HEALTH10",
+                "description": "Save 10% on all fitness trackers.",
+                "expiry_date": "2024-11-30",
+                "condition": "Valid on first-time purchases.",
+                "coupon_type": "percentage"
+            },
+            {
+                "coupon_code": "FREEBAND",
+                "description": "Get a free band with every smartwatch.",
+                "expiry_date": "2024-12-10",
+                "condition": "Limited colors available.",
+                "coupon_type": "gift"
+            }
+        ],
+        "shop_Link": "https://www.smarthealth.com",
+        "category": "Health & Fitness",
+        "isSaleOn": true
+    },
+    {
+        "_id": "10",
+        "brand_name": "EcoTech",
+        "rating": 4.7,
+        "description": "Sustainable technology for a better planet.",
+        "brand_logo": "https://example.com/logos/ecotech.png",
+        "coupons": [
+            {
+                "coupon_code": "ECO25",
+                "description": "25% off on eco-friendly gadgets.",
+                "expiry_date": "2024-12-31",
+                "condition": "Minimum purchase of $75.",
+                "coupon_type": "percentage"
+            },
+            {
+                "coupon_code": "ECOFREESHIP",
+                "description": "Free shipping on all orders.",
+                "expiry_date": "2024-11-30",
+                "condition": "Standard shipping only.",
+                "coupon_type": "shipping"
+            }
+        ],
+        "shop_Link": "https://www.ecotech.com",
+        "category": "Sustainable Tech",
+        "isSaleOn": false
+    },
+    {
+        "_id": "11",
+        "brand_name": "TechTrove",
+        "rating": 4.5,
+        "description": "Exclusive collection of cutting-edge gadgets.",
+        "brand_logo": "https://example.com/logos/techtrove.png",
+        "coupons": [
+            {
+                "coupon_code": "TROVE50",
+                "description": "Flat $50 off on premium gadgets.",
+                "expiry_date": "2024-12-31",
+                "condition": "Applicable on orders above $300.",
+                "coupon_type": "flat"
+            },
+            {
+                "coupon_code": "WELCOME10",
+                "description": "10% off on your first purchase.",
+                "expiry_date": "2025-01-01",
+                "condition": "No minimum spend.",
+                "coupon_type": "percentage"
+            }
+        ],
+        "shop_Link": "https://www.techtrove.com",
+        "category": "Gadgets",
+        "isSaleOn": true
+    },
+    {
+        "_id": "12",
+        "brand_name": "SolarPower",
+        "rating": 4.6,
+        "description": "Harness the sun with our solar gadgets.",
+        "brand_logo": "https://example.com/logos/solarpower.png",
+        "coupons": [
+            {
+                "coupon_code": "SOLAR25",
+                "description": "25% off on all solar chargers.",
+                "expiry_date": "2024-12-15",
+                "condition": "Limited stock available.",
+                "coupon_type": "percentage"
+            },
+            {
+                "coupon_code": "FREESOLAR",
+                "description": "Free shipping on solar panel kits.",
+                "expiry_date": "2024-12-10",
+                "condition": "Applies to orders above $150.",
+                "coupon_type": "shipping"
+            }
+        ],
+        "shop_Link": "https://www.solarpower.com",
+        "category": "Renewable Energy",
+        "isSaleOn": true
+    },
+    {
+        "_id": "13",
+        "brand_name": "VRWorld",
+        "rating": 4.8,
+        "description": "Step into the future with VR gadgets.",
+        "brand_logo": "https://example.com/logos/vrworld.png",
+        "coupons": [
+            {
+                "coupon_code": "VR25OFF",
+                "description": "25% off on VR headsets.",
+                "expiry_date": "2024-12-20",
+                "condition": "Valid on select models only.",
+                "coupon_type": "percentage"
+            },
+            {
+                "coupon_code": "VRBUNDLE",
+                "description": "Save $100 on VR bundles.",
+                "expiry_date": "2024-12-31",
+                "condition": "Bundle includes headset and accessories.",
+                "coupon_type": "flat"
+            }
+        ],
+        "shop_Link": "https://www.vrworld.com",
+        "category": "Virtual Reality",
+        "isSaleOn": true
+    },
+    {
+        "_id": "14",
+        "brand_name": "CleanTech",
+        "rating": 4.4,
+        "description": "Advanced tech for a cleaner home.",
+        "brand_logo": "https://example.com/logos/cleantech.png",
+        "coupons": [
+            {
+                "coupon_code": "CLEAN20",
+                "description": "20% off on all smart vacuums.",
+                "expiry_date": "2024-11-30",
+                "condition": "Valid for online purchases only.",
+                "coupon_type": "percentage"
+            },
+            {
+                "coupon_code": "FREEMOP",
+                "description": "Free mop attachment with select vacuums.",
+                "expiry_date": "2024-12-15",
+                "condition": "While supplies last.",
+                "coupon_type": "gift"
+            }
+        ],
+        "shop_Link": "https://www.cleantech.com",
+        "category": "Home Appliances",
+        "isSaleOn": false
+    },
+    {
+        "_id": "15",
+        "brand_name": "FitGear",
+        "rating": 4.7,
+        "description": "Tech-enhanced fitness gear.",
+        "brand_logo": "https://example.com/logos/fitgear.png",
+        "coupons": [
+            {
+                "coupon_code": "FIT15",
+                "description": "15% off on all fitness wearables.",
+                "expiry_date": "2025-01-31",
+                "condition": "Minimum purchase of $75.",
+                "coupon_type": "percentage"
+            },
+            {
+                "coupon_code": "GEARPACK",
+                "description": "Free gear bag with orders over $200.",
+                "expiry_date": "2024-12-25",
+                "condition": "Limited edition gear bag.",
+                "coupon_type": "gift"
+            }
+        ],
+        "shop_Link": "https://www.fitgear.com",
+        "category": "Health & Fitness",
+        "isSaleOn": true
+    },
+    {
+        "_id": "16",
+        "brand_name": "StreamMaster",
+        "rating": 4.3,
+        "description": "Best devices for streaming and entertainment.",
+        "brand_logo": "https://example.com/logos/streammaster.png",
+        "coupons": [
+            {
+                "coupon_code": "STREAM20",
+                "description": "20% off on all streaming devices.",
+                "expiry_date": "2024-12-31",
+                "condition": "No restrictions.",
+                "coupon_type": "percentage"
+            },
+            {
+                "coupon_code": "BUNDLEUP",
+                "description": "Save $50 on streaming bundles.",
+                "expiry_date": "2024-12-20",
+                "condition": "Includes device and subscription.",
+                "coupon_type": "flat"
+            }
+        ],
+        "shop_Link": "https://www.streammaster.com",
+        "category": "Entertainment",
+        "isSaleOn": true
+    },
+    {
+        "_id": "17",
+        "brand_name": "DroneTech",
+        "rating": 4.8,
+        "description": "Explore the skies with our advanced drones.",
+        "brand_logo": "https://example.com/logos/dronetech.png",
+        "coupons": [
+            {
+                "coupon_code": "FLYHIGH",
+                "description": "Save $100 on premium drones.",
+                "expiry_date": "2024-12-31",
+                "condition": "Valid on drones above $500.",
+                "coupon_type": "flat"
+            },
+            {
+                "coupon_code": "DRONEFREE",
+                "description": "Free accessories with select drones.",
+                "expiry_date": "2024-12-15",
+                "condition": "Accessories worth up to $50.",
+                "coupon_type": "gift"
+            }
+        ],
+        "shop_Link": "https://www.dronetech.com",
+        "category": "Drones",
+        "isSaleOn": true
+    },
+    {
+        "_id": "18",
+        "brand_name": "BatteryPlus",
+        "rating": 4.2,
+        "description": "Power up with our high-performance batteries.",
+        "brand_logo": "https://example.com/logos/batteryplus.png",
+        "coupons": [
+            {
+                "coupon_code": "POWER15",
+                "description": "15% off on all power banks.",
+                "expiry_date": "2024-12-10",
+                "condition": "No restrictions.",
+                "coupon_type": "percentage"
+            },
+            {
+                "coupon_code": "FREEDOCK",
+                "description": "Free charging dock with bulk orders.",
+                "expiry_date": "2024-12-31",
+                "condition": "Order 5 or more items.",
+                "coupon_type": "gift"
+            }
+        ],
+        "shop_Link": "https://www.batteryplus.com",
+        "category": "Accessories",
+        "isSaleOn": false
+    },
+    {
+        "_id": "19",
+        "brand_name": "TechProTools",
+        "rating": 4.6,
+        "description": "Professional-grade tech tools and kits.",
+        "brand_logo": "https://example.com/logos/techprotools.png",
+        "coupons": [
+            {
+                "coupon_code": "TOOLKIT25",
+                "description": "25% off on all toolkits.",
+                "expiry_date": "2024-12-20",
+                "condition": "No minimum purchase.",
+                "coupon_type": "percentage"
+            },
+            {
+                "coupon_code": "FREETOOL",
+                "description": "Free screwdriver with any toolkit.",
+                "expiry_date": "2024-12-31",
+                "condition": "One per order.",
+                "coupon_type": "gift"
+            }
+        ],
+        "shop_Link": "https://www.techprotools.com",
+        "category": "Tools",
+        "isSaleOn": true
+    },
+    {
+        "_id": "20",
+        "brand_name": "AutoGadgets",
+        "rating": 4.5,
+        "description": "Tech to elevate your driving experience.",
+        "brand_logo": "https://example.com/logos/autogadgets.png",
+        "coupons": [
+            {
+                "coupon_code": "AUTO15",
+                "description": "15% off on dashboard cameras.",
+                "expiry_date": "2024-12-15",
+                "condition": "Valid on select brands.",
+                "coupon_type": "percentage"
+            },
+            {
+                "coupon_code": "FREEGPS",
+                "description": "Free GPS mount with orders above $150.",
+                "expiry_date": "2024-12-31",
+                "condition": "One per customer.",
+                "coupon_type": "gift"
+            }
+        ],
+        "shop_Link": "https://www.autogadgets.com",
+        "category": "Automotive",
+        "isSaleOn": false
+    }
+]

@@ -40,7 +40,7 @@ const Login = () => {
             });
     };
     return (
-        <div className="max-w-screen-lg mx-auto p-6 sm:mt-24 mt-6 sm:px-8 sm:py-10 lg:px-12 lg:py-16">
+        <div className="max-w-screen-lg mx-auto p-6 mt-6 sm:px-8 sm:py-10 lg:px-12 md:mb-24  mb-36">
             <Helmet>
                 <title>Login | R Coupons</title>
             </Helmet>
