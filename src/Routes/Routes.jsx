@@ -5,6 +5,7 @@ import LoginRegisterLayout from "../Layouts/LoginRegisterLayout";
 import Home from "../Pages/Home";
 import Profile from "../Pages/Profile";
 import HomeLayout from "../Layouts/HomeLayout";
+import PrivateRoutes from "./PrivateRoutes";
 
 const routes = new createBrowserRouter([
     {
@@ -13,11 +14,15 @@ const routes = new createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <Home/>
-        },
+                element: <Home />,
+            },
             {
                 path: "/profile",
-                element: <Profile />,
+                element: (
+                    <PrivateRoutes>
+                        <Profile />
+                    </PrivateRoutes>
+                ),
             },
         ],
     },
