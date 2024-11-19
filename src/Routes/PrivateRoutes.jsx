@@ -7,7 +7,7 @@ const PrivateRoutes = ({ children }) => {
 
     // If loading true
     if (loading) {
-        return <span className="loading loading-spinner text-success"></span>;
+        return <span className="block mx-auto mt-10 loading loading-spinner text-success"></span>;
     }
 
     //  If user found

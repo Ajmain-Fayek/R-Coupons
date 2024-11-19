@@ -36,18 +36,18 @@ const Register = () => {
             return setErrorMsg("Password Must be at least 6 Character long");
         }
         if (!terms) return setErrorMsg("Accept Terms And Conditions!");
-            // Create User
-            signUpWithEmailAndPassword(email, password)
-                .then(() => {
-                    if (photoURL) {
-                        updateUserInfo({ displayName: name, photoURL });
-                    }
-                    navigate("/user/login");
-                })
-                .catch((err) => {
-                    const msg = err.message.match(/\(([^)]+)\)/);
-                    if (msg) return setErrorMsg(msg[1]);
-                });
+        // Create User
+        signUpWithEmailAndPassword(email, password)
+            .then(() => {
+                if (photoURL) {
+                    updateUserInfo({ displayName: name, photoURL });
+                } else updateUserInfo({ displayName: name });
+                navigate("/user/login");
+            })
+            .catch((err) => {
+                const msg = err.message.match(/\(([^)]+)\)/);
+                if (msg) return setErrorMsg(msg[1]);
+            });
     };
     return (
         <div className="max-w-md mx-auto mt-6 space-y-6 rounded-lg p-10">

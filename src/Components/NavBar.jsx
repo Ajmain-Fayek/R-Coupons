@@ -16,7 +16,10 @@ const NavBar = () => {
     return (
         <div className="bg-pink-100 z-50 sticky top-0">
             <nav className="flex max-w-screen-2xl items-center justify-between px-2 py-2 mx-auto">
-                <div onClick={() =>  navigate('/')} className="flex items-center gap-1.5 cursor-pointer">
+                <div
+                    onClick={() => navigate("/")}
+                    className="flex items-center gap-1.5 cursor-pointer"
+                >
                     <img
                         src={logo}
                         className="h-10 w-10 rounded-lg shadow-lg"
@@ -29,17 +32,22 @@ const NavBar = () => {
                         <Link to="/">Home</Link>
                     </li>
                     <li className="hover:underline">
-                        <Link to="#">Services</Link>
+                        <Link to="/brands">Brands</Link>
                     </li>
                     <li className="hover:underline">
-                        <Link to="#">About</Link>
-                    </li>
-                    <li className="hover:underline">
-                        <Link to="#">Contact</Link>
+                        <Link to="/about-dev">About Dev</Link>
                     </li>
                 </ul>
-                <div className="flex items-center gap-2">
-                    <Link className="border rounded-full border-red-300 shadow-md" to={user ? "/profile" : "/user/login"}>
+                <div className="flex items-center gap-4">
+                    {user && (
+                        <Link to="/my-coupons" className="link-hover">
+                            My Coupons
+                        </Link>
+                    )}
+                    <Link
+                        className="border rounded-full border-red-300 shadow-md"
+                        to={user ? "/my-profile" : "/user/login"}
+                    >
                         <img
                             src={
                                 user
@@ -53,11 +61,11 @@ const NavBar = () => {
                     </Link>
                     {user ? (
                         <Link onClick={handleSignOut} title="Sign Out">
-                            <MdOutlineLogout />
+                            <MdOutlineLogout style={{ fontSize: "1.5rem" }} />
                         </Link>
                     ) : (
                         <Link title="Sign In" to={"user/login"}>
-                            <MdOutlineLogin />
+                            <MdOutlineLogin style={{ fontSize: "1.5rem" }} />
                         </Link>
                     )}
                 </div>

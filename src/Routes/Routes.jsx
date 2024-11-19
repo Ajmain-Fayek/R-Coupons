@@ -6,6 +6,10 @@ import Home from "../Pages/Home";
 import Profile from "../Pages/Profile";
 import HomeLayout from "../Layouts/HomeLayout";
 import PrivateRoutes from "./PrivateRoutes";
+import Brands from "../Pages/Brands";
+import MyCoupons from "../Pages/MyCoupons";
+import UpdateProfile from "../Pages/UpdateProfile";
+import AboutDev from "../Pages/AboutDev";
 
 const routes = new createBrowserRouter([
     {
@@ -17,12 +21,44 @@ const routes = new createBrowserRouter([
                 element: <Home />,
             },
             {
-                path: "/profile",
+                path: "/brands",
+                element: <Brands />,
+            },
+            {
+                path: "/about-dev",
+                element: <AboutDev />,
+            },
+            {
+                path: "/my-coupons",
+                element: (
+                    <PrivateRoutes>
+                        <MyCoupons />
+                    </PrivateRoutes>
+                ),
+            },
+            {
+                path: "/my-profile",
                 element: (
                     <PrivateRoutes>
                         <Profile />
                     </PrivateRoutes>
                 ),
+            },
+            {
+                path: "/update-profile",
+                element: (
+                    <PrivateRoutes>
+                        <UpdateProfile />
+                    </PrivateRoutes>
+                ),
+            },
+            {
+                path: "/brand",
+                element: <PrivateRoutes></PrivateRoutes>,
+            },
+            {
+                path: "/brand/:id",
+                element: <PrivateRoutes></PrivateRoutes>,
             },
         ],
     },
