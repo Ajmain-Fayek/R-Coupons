@@ -8,10 +8,8 @@ import {
 import { AuthContext } from "../Context/AuthStateProvider";
 import { Helmet } from "react-helmet-async";
 import demo from "../assets/Humaaans - Standing (1).png";
-import bg from "../assets/cool-background (1).png";
-import bg2 from "../assets/Humaaans - Friend Meeting.png";
-import bg3 from "../assets/Family Values-Shopping.png";
 import { useNavigate } from "react-router-dom";
+import Header from "../Components/Header";
 
 const Profile = () => {
     const [openModal, setOpenModal] = useState(false);
@@ -36,14 +34,7 @@ const Profile = () => {
                     My Profile | {user ? `${user.displayName}` : "R Coupons"}
                 </title>
             </Helmet>
-            <div className="mx-auto text-center max-w-screen-2xl px-2 py-2 relative">
-                <img className="h-24 w-full rounded-lg object-cover" src={bg} />
-                <img className="absolute top-0 right-4 h-28" src={bg2} />
-                <img className="absolute top-4 left-4 h-20" src={bg3} />
-                <p className="font-semibold text-2xl absolute left-0 right-0 top-10">
-                    Happy Shopping
-                </p>
-            </div>
+            {Header("Happy Shopping", user.displayName)}
             <div className="max-w-screen-2xl mx-auto">
                 <div className="flex border rounded-2xl shadow-xl mx-auto mt-2 max-w-[350px] flex-col items-center justify-center space-y-4 p-8">
                     <div className="group relative">
