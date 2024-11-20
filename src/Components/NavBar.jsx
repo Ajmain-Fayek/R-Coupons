@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/favicon.png";
 import { MdOutlineLogin, MdOutlineLogout } from "react-icons/md";
@@ -8,6 +8,24 @@ import { AuthContext } from "../Context/AuthStateProvider";
 const NavBar = () => {
     const { user, logOutUser } = useContext(AuthContext);
     const navigate = useNavigate();
+
+    const [open, setOpen] = useState(false);
+    const dropDownRef = useRef(null);
+
+    useEffect(() => {
+        const close = (e) => {
+            if (
+                dropDownRef.current &&
+                !dropDownRef.current.contains(e.target)
+            ) {
+                setOpen(false);
+            }
+        };
+        document.addEventListener("mousedown", close);
+        return () => {
+            document.removeEventListener("mousedown", close);
+        };
+    }, []);
 
     // Sign Out
     const handleSignOut = () => {
@@ -27,7 +45,7 @@ const NavBar = () => {
                     />
                     <h2 className="text-2xl font-bold">R Coupons</h2>
                 </div>
-                <ul className="flex items-center justify-between gap-4 text-slate-900 lg:gap-6">
+                <ul className="sm:flex hidden items-center justify-between gap-4 text-slate-900 lg:gap-6">
                     <li className="hover:underline">
                         <Link to="/">Home</Link>
                     </li>
@@ -38,7 +56,7 @@ const NavBar = () => {
                         <Link to="/about-dev">About Dev</Link>
                     </li>
                 </ul>
-                <div className="flex items-center gap-4">
+                <div className="sm:flex hidden items-center gap-4">
                     {user && (
                         <Link to="/my-coupons" className="link-hover">
                             My Coupons
@@ -68,6 +86,85 @@ const NavBar = () => {
                             <MdOutlineLogin style={{ fontSize: "1.5rem" }} />
                         </Link>
                     )}
+                </div>
+                {/* Mobile menu */}
+                <div className="relative flex sm:hidden items-center">
+                    <div
+                        ref={dropDownRef}
+                        className="relative mx-auto w-fit text-black"
+                    >
+                        <button onClick={() => setOpen((prev) => !prev)}>
+                            <img
+                                src={
+                                    user
+                                        ? user.photoURL
+                                            ? user.photoURL
+                                            : demo
+                                        : demo
+                                }
+                                className=" h-8 w-8 bg-base-300 rounded-full border border-red-300 shadow-md"
+                            />
+                        </button>
+                        <ul
+                            className={`${
+                                open ? "visible duration-300" : "invisible"
+                            } absolute right-0 top-12 z-50 w-36 text-center py-2 rounded-md bg-slate-100 shadow-md space-y-4`}
+                        >
+                            {user && (
+                                <>
+                                    <li>
+                                        <Link
+                                            to="/my-profile"
+                                            className="hover:underline"
+                                        >
+                                            Profile
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            to="/my-coupons"
+                                            className="hover:underline"
+                                        >
+                                            My Coupons
+                                        </Link>
+                                    </li>
+                                </>
+                            )}
+                            <li className="hover:underline">
+                                <Link to="/">Home</Link>
+                            </li>
+                            <li className="hover:underline">
+                                <Link to="/brands">Brands</Link>
+                            </li>
+                            <li className="hover:underline">
+                                <Link to="/about-dev">About Dev</Link>
+                            </li>
+                            {user ? (
+                                <li className="w-full flex justify-center">
+                                    <Link
+                                        onClick={handleSignOut}
+                                        title="Sign Out"
+                                    >
+                                        <MdOutlineLogout
+                                            style={{
+                                                fontSize: "1.5rem",
+                                            }}
+                                        />
+                                    </Link>
+                                </li>
+                            ) : (
+                                <li className="w-full flex justify-center">
+                                    <Link title="Sign In" to={"/user/login"}>
+                                        <MdOutlineLogin
+                                            style={{
+                                                fontSize: "1.5rem",
+                                            }}
+                                        />
+                                    </Link>
+                                </li>
+                            )}
+                        </ul>
+                    </div>
                 </div>
             </nav>
         </div>

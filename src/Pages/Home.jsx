@@ -17,7 +17,6 @@ const Home = () => {
         if (data.isSaleOn) return data;
     });
     const cardToShow = showAll ? data2 : data2.slice(0, initialyVisibleCards);
-    console.log(data2);
 
     const cardBgColor = [
         "bg-sky-100",
@@ -28,7 +27,6 @@ const Home = () => {
         "bg-orange-100",
     ];
 
-    const cardKeys = 111;
     return (
         <div>
             <Helmet>
@@ -39,7 +37,7 @@ const Home = () => {
                 <Carousel />
             </div>
             <TopBrands />
-            <div className="max-w-screen-2xl space-y-4 p-2 mx-auto mb-28">
+            <div className="max-w-screen-2xl space-y-4 p-2 mx-auto">
                 {SectionTitle("Brands On Sale")}
                 {cardToShow.map(
                     (data, index) =>
@@ -67,6 +65,25 @@ const Home = () => {
                         </button>
                     </div>
                 )}
+            </div>
+            {/* About Section */}
+            <div className="mb-28 mx-auto text-center bg-base-200 py-10 mt-4">
+                {SectionTitle("About Us")}
+                <p className="max-w-screen-lg mx-auto px-6">
+                    Welcome to <b>R Coupons</b> – your ultimate
+                    destination for discovering the best deals and discounts! We
+                    understand the thrill of saving money while shopping for
+                    your favorite products and services. That’s why we’re here
+                    to connect you with top-notch coupons, promo codes, and
+                    exclusive offers from your favorite brands and stores. At
+                    <b> R Coupons</b>, we strive to make savings simple and
+                    accessible. Whether you’re hunting for discounts on gadgets,
+                    fashion, dining, travel, or daily essentials, we’ve got you
+                    covered. Our team works tirelessly to keep our database
+                    up-to-date, ensuring you never miss out on a great deal. Why
+                    pay full price when you can save with <b>R Coupons</b>? Start
+                    exploring today and enjoy smart shopping at its finest!
+                </p>
             </div>
         </div>
     );
