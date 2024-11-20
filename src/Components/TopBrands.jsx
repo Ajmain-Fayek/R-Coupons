@@ -18,7 +18,7 @@ const TopBrands = () => {
         navigate("/brands");
     };
     return (
-        <div className="bg-base-200">
+        <div className="bg-pink-50">
             <div className="max-w-screen-2xl mx-auto my-10 text-center">
                 {SectionTitle("Top Brands")}
                 <div className="rounded-xl">

@@ -66,23 +66,55 @@ const Home = () => {
                     </div>
                 )}
             </div>
+            {/* FAQ */}
+            <div className="max-w-screen-2xl mx-auto p-2 mt-4 space-y-2">
+                {SectionTitle("General FAQ")}
+                <div className="collapse collapse-arrow bg-yellow-100">
+                    <input type="radio" name="my-accordion-2" defaultChecked />
+                    <div className="collapse-title text-xl font-medium">
+                        What is R Coupons for?
+                    </div>
+                    <div className="collapse-content">
+                        <p>R Coupons is a one stop Coupon Collection website.</p>
+                    </div>
+                </div>
+                <div className="collapse collapse-arrow bg-yellow-100">
+                    <input type="radio" name="my-accordion-2" />
+                    <div className="collapse-title text-xl font-medium">
+                        Is it legit?
+                    </div>
+                    <div className="collapse-content">
+                        <p>Yes, R coupons provides 100% legit coupon codes.</p>
+                    </div>
+                </div>
+                <div className="collapse collapse-arrow bg-yellow-100">
+                    <input type="radio" name="my-accordion-2" />
+                    <div className="collapse-title text-xl font-medium">
+                        Does R Coupons have valuable Brands?
+                    </div>
+                    <div className="collapse-content">
+                        <p>Yes, R Coupon has a lot of well knows Brands.</p>
+                    </div>
+                </div>
+            </div>
             {/* About Section */}
-            <div className="mb-28 mx-auto text-center bg-base-200 py-10 mt-4">
+            <div className="mb-28 mx-auto text-center bg-green-50 py-10 mt-4">
                 {SectionTitle("About Us")}
                 <p className="max-w-screen-lg mx-auto px-6">
-                    Welcome to <b>R Coupons</b> – your ultimate
-                    destination for discovering the best deals and discounts! We
-                    understand the thrill of saving money while shopping for
-                    your favorite products and services. That’s why we’re here
-                    to connect you with top-notch coupons, promo codes, and
-                    exclusive offers from your favorite brands and stores. At
+                    Welcome to <b>R Coupons</b> – your ultimate destination for
+                    discovering the best deals and discounts! We understand the
+                    thrill of saving money while shopping for your favorite
+                    products and services. That’s why we’re here to connect you
+                    with top-notch coupons, promo codes, and exclusive offers
+                    from your favorite brands and stores. At
                     <b> R Coupons</b>, we strive to make savings simple and
                     accessible. Whether you’re hunting for discounts on gadgets,
                     fashion, dining, travel, or daily essentials, we’ve got you
                     covered. Our team works tirelessly to keep our database
                     up-to-date, ensuring you never miss out on a great deal. Why
-                    pay full price when you can save with <b>R Coupons</b>? Start
-                    exploring today and enjoy smart shopping at its finest!
+                    pay full price when you can save with <b>R Coupons</b>?
+                    Start exploring today and enjoy smart shopping at its
+                    finest!
                 </p>
             </div>
         </div>
