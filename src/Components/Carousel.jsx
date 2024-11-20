@@ -36,10 +36,10 @@ export const Carousel = () => {
             {/* arrow left */}
             <button
                 onClick={prevSlider}
-                className="absolute top-1/2 left-3 z-50 flex justify-center items-center bg-pink-100 rounded-full w-6 h-6 md:w-8 md:h-8"
+                className="absolute top-1/2 left-3 z-50 flex justify-center items-center bg-pink-50 rounded-full w-6 h-6 md:w-8 md:h-8"
             >
                 <svg
-                    className="icon h-4 w-4 fill-black/50 md:h-6 md:w-6"
+                    className="icon h-4 w-4 fill-black md:h-6 md:w-6"
                     viewBox="0 0 1024 1024"
                     xmlns="http://www.w3.org/2000/svg"
                 >
@@ -49,10 +49,10 @@ export const Carousel = () => {
             {/* arrow right */}
             <button
                 onClick={nextSlider}
-                className="absolute top-1/2 z-50 right-3  flex justify-center items-center bg-pink-100 rounded-full w-6 h-6 md:w-8 md:h-8"
+                className="absolute top-1/2 z-50 right-3  flex justify-center items-center bg-pink-50 rounded-full w-6 h-6 md:w-8 md:h-8"
             >
                 <svg
-                    className="icon h-4 w-4 fill-black/50 md:h-6 md:w-6"
+                    className="icon h-4 w-4 fill-black md:h-6 md:w-6"
                     viewBox="0 0 1024 1024"
                     xmlns="http://www.w3.org/2000/svg"
                     transform="rotate(180)"
@@ -66,8 +66,8 @@ export const Carousel = () => {
                     <button
                         key={`${img}_${idx}`}
                         onClick={() => setCurrentSlider(idx)}
-                        className={`rounded-full duration-500 bg-white ${
-                            currentSlider === idx ? "w-8" : "wz-2"
+                        className={`rounded-full duration-500 bg-pink-300 ${
+                            currentSlider === idx ? "w-8" : "w-2"
                         } h-2`}
                     ></button>
                 ))}

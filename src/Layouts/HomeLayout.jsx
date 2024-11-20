@@ -14,7 +14,7 @@ const HomeLayout = () => {
             {user &&
                 !user.emailVerified &&
                 Warning(
-                    `${user.displayName} please verify your Email, otherwise your account will be deleted after 30 Minutes priode.`,
+                    `${user.displayName}, for your Account Safty, please verify your Email.!!!`,
                     "emailWarning"
                 )}
             <Outlet />
