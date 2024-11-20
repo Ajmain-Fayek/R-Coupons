@@ -19,6 +19,13 @@
                 "expiry_date": "2024-12-15",
                 "condition": "Applies to standard shipping only.",
                 "coupon_type": "shipping"
+            },
+            {
+                "coupon_code": "FREESHIP",
+                "description": "Free shipping on orders over $30.",
+                "expiry_date": "2024-12-15",
+                "condition": "Applies to standard shipping only.",
+                "coupon_type": "shipping"
             }
         ],
         "shop_Link": "https://www.techwear.com",

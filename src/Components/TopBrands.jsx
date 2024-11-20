@@ -19,7 +19,7 @@ const TopBrands = () => {
     };
     return (
         <div className="bg-base-200">
-            <div className="max-w-screen-2xl mx-auto mt-10 text-center mb-28">
+            <div className="max-w-screen-2xl mx-auto my-10 text-center">
                 {SectionTitle("Top Brands")}
                 <div className="rounded-xl">
                     <Marquee pauseOnHover={true} speed={125}>
