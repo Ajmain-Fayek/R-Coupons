@@ -32,7 +32,7 @@ const NavBar = () => {
         logOutUser().then(() => navigate("/"));
     };
     return (
-        <div className="bg-pink-100 z-50 sticky top-0">
+        <div className="bg-pink-100 z-[9999] sticky top-0 shadow-md">
             <nav className="flex max-w-screen-2xl items-center justify-between px-2 py-2 mx-auto">
                 <div
                     onClick={() => navigate("/")}
