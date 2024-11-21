@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../Context/AuthStateProvider";
 import { Link, useNavigate } from "react-router-dom";
@@ -6,11 +6,12 @@ import { Helmet } from "react-helmet-async";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
-    const { signInWithGoogle, signInUser } = useContext(AuthContext);
+    const { signInWithGoogle, signInUser, setEmail } = useContext(AuthContext);
     const [errorMsg, setErrorMsg] = useState("");
     const [errorMsgGoogle, setErrorMsgGoogle] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
+    const emailRef = useRef();
 
     // Sign in with ** EMAIL & PASS **
     const handleSignIn = (event) => {
@@ -41,6 +42,16 @@ const Login = () => {
                 if (msg) return setErrorMsgGoogle(msg[1]);
             });
     };
+
+    // Handle Forget Password
+    const handleForgetPassword = () => {
+        setErrorMsg("");
+        const email = emailRef.current.value;
+        if (!email) {
+            setEmail(email);
+        }
+        return navigate("/forget-password");
+    };
     return (
         <div className="max-w-screen-lg mx-auto p-6 mt-6 sm:px-8 sm:py-10 lg:px-12 md:mb-24  mb-36">
             <Helmet>
@@ -57,8 +68,9 @@ const Login = () => {
                             <input
                                 className="flex h-10 w-full rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-1"
                                 placeholder="Username"
-                                type="text"
+                                type="email"
                                 name="email"
+                                ref={emailRef}
                             />
                             <input
                                 className="flex h-10 w-full rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-1"
@@ -93,12 +105,12 @@ const Login = () => {
                     </form>
                     <p className="mt-6 flex gap-1 text-sm">
                         Did you
-                        <a
+                        <Link
+                            onClick={handleForgetPassword}
                             className="text-blue-600 font-semibold underline"
-                            href="#"
                         >
                             forget your password?
-                        </a>
+                        </Link>
                     </p>
                     {/* Error */}
                     {errorMsg && (

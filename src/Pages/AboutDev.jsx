@@ -23,10 +23,10 @@ const AboutDev = () => {
 
             {/* bio  */}
             <p className="pb-2 text-center text-sm text-gray-500">
-                Skilled web programmer with a passion for
-                creating dynamic, intuitive, and visually appealing websites.
-                With expertise in modern web technologies, focused on
-                delivering seamless digital experiences tailored to user needs.
+                Skilled web programmer with a passion for creating dynamic,
+                intuitive, and visually appealing websites. With expertise in
+                modern web technologies, focused on delivering seamless digital
+                experiences tailored to user needs.
             </p>
 
             {/* social icons  */}

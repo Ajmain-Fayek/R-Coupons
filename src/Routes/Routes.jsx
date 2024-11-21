@@ -11,6 +11,7 @@ import UpdateProfile from "../Pages/UpdateProfile";
 import AboutDev from "../Pages/AboutDev";
 import ErrorPage from "../Pages/ErrorPage";
 import CouponsDetails from "../Pages/CouponsDetails";
+import ForgetPassword from "../Pages/ForgetPassword";
 
 const routes = new createBrowserRouter([
     {
@@ -51,6 +52,10 @@ const routes = new createBrowserRouter([
                         <UpdateProfile />
                     </PrivateRoutes>
                 ),
+            },
+            {
+                path: "/forget-password",
+                element: <ForgetPassword />,
             },
             {
                 path: "/brand/:id",

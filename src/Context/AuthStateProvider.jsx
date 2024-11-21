@@ -4,6 +4,7 @@ import {
     deleteUser,
     GoogleAuthProvider,
     onAuthStateChanged,
+    sendPasswordResetEmail,
     signInWithEmailAndPassword,
     signInWithPopup,
     signOut,
@@ -19,6 +20,7 @@ const googleProvider = new GoogleAuthProvider();
 const AuthStateProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setloading] = useState(true);
+    const [getEmail, setEmail] = useState(undefined);
 
     // Sign Up with **EMAIL & PASSWORD**
     const signUpWithEmailAndPassword = (email, password) => {
@@ -45,8 +47,14 @@ const AuthStateProvider = ({ children }) => {
 
     // Sign Out User
     const logOutUser = () => {
-        setloading();
+        setloading(true);
         return signOut(auth);
+    };
+
+    // FORGET Password
+    const forgetPassword = (email) => {
+        setloading(true);
+        return sendPasswordResetEmail(auth, email);
     };
 
     // DELETE User Account
@@ -71,6 +79,9 @@ const AuthStateProvider = ({ children }) => {
         setUser,
         logOutUser,
         signInUser,
+        forgetPassword,
+        getEmail,
+        setEmail,
         user,
         loading,
     };
