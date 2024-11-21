@@ -13,6 +13,10 @@ const UpdateProfile = () => {
         const photoURL = e.target.photoUrl.value;
         const displayName = firstName + " " + LastName;
 
+        // Clear previus Error message
+        setErrorMsg("");
+
+        // Update user Profile
         updateUserInfo({ displayName, photoURL })
             .then(() => navigate("/my-profile"))
             .catch((err) => {
@@ -88,6 +92,7 @@ const UpdateProfile = () => {
                 >
                     Back to Profile
                 </Link>
+                {/* Error */}
                 {errorMsg && (
                     <p className="text-red-700 bg-red-50 border border-red-100 px-4 py-1 w-fit rounded-md">
                         {errorMsg}

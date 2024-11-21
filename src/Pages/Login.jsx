@@ -3,11 +3,13 @@ import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../Context/AuthStateProvider";
 import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
     const { signInWithGoogle, signInUser } = useContext(AuthContext);
     const [errorMsg, setErrorMsg] = useState("");
     const [errorMsgGoogle, setErrorMsgGoogle] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
 
     // Sign in with ** EMAIL & PASS **
@@ -51,7 +53,7 @@ const Login = () => {
                         Sign In
                     </h2>
                     <form onSubmit={handleSignIn}>
-                        <div className="mb-4 flex flex-col space-y-4">
+                        <div className="mb-4 flex flex-col space-y-4 relative">
                             <input
                                 className="flex h-10 w-full rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-1"
                                 placeholder="Username"
@@ -61,9 +63,16 @@ const Login = () => {
                             <input
                                 className="flex h-10 w-full rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-1"
                                 placeholder="Password"
-                                type="password"
+                                type={showPassword ? "text" : "password"}
                                 name="password"
                             />
+                            <button
+                                type="button"
+                                onClick={() => setShowPassword(!showPassword)}
+                                className="p-2 absolute top-11 bg-white hover:bg-white right-2"
+                            >
+                                {showPassword ? <FaEyeSlash /> : <FaEye />}
+                            </button>
                         </div>
                         <div className="mb-6 flex items-center space-x-2 accent-sky-600">
                             <input

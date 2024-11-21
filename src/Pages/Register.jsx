@@ -1,11 +1,13 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthStateProvider";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
     const { signUpWithEmailAndPassword, updateUserInfo } =
         useContext(AuthContext);
     const [errorMsg, setErrorMsg] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
 
     // Register user
@@ -123,7 +125,7 @@ const Register = () => {
                             required
                         />
                     </div>
-                    <div className="space-y-2 text-sm">
+                    <div className="space-y-2 text-sm relative">
                         <label
                             className="text-sm font-medium leading-none text-zinc-700"
                             htmlFor="password_"
@@ -135,9 +137,16 @@ const Register = () => {
                             id="password_"
                             placeholder="password"
                             name="password"
-                            type="password"
+                            type={showPassword ? "text" : "password"}
                             required
                         />
+                        <button
+                            type="button"
+                            onClick={() => setShowPassword(!showPassword)}
+                            className="p-2 absolute top-6 bg-white hover:bg-white right-2"
+                        >
+                            {showPassword ? <FaEyeSlash /> : <FaEye />}
+                        </button>
                     </div>
                     <div className="mb-6 flex items-center space-x-2 accent-sky-600">
                         <input
