@@ -66,6 +66,34 @@ const Home = () => {
                     </div>
                 )}
             </div>
+            {/* Stats */}
+            <div className="flex justify-center bg-purple-100 mt-8 mb-4">
+                <div className="stats stats-vertical bg-purple-100 sm:stats-horizontal shadow">
+                    <div className="stat">
+                        <div className="stat-title">Brands</div>
+                        <div className="stat-value">{data && data.length}</div>
+                        <div className="stat-desc">Nov 1st - Jan 1st</div>
+                    </div>
+
+                    <div className="stat">
+                        <div className="stat-title">Coupons</div>
+                        <div className="stat-value">250</div>
+                        <div className="stat-desc">↗︎ 450 (32%)</div>
+                    </div>
+
+                    <div className="stat">
+                        <div className="stat-title">New Users</div>
+                        <div className="stat-value">4,200</div>
+                        <div className="stat-desc">↗︎ 400 (22%)</div>
+                    </div>
+
+                    <div className="stat">
+                        <div className="stat-title">New Registers</div>
+                        <div className="stat-value">1,200</div>
+                        <div className="stat-desc">↘︎ 90 (14%)</div>
+                    </div>
+                </div>
+            </div>
             {/* FAQ */}
             <div className="max-w-screen-2xl mx-auto p-2 mt-4 space-y-2">
                 {SectionTitle("General FAQ")}
@@ -75,7 +103,9 @@ const Home = () => {
                         What is R Coupons for?
                     </div>
                     <div className="collapse-content">
-                        <p>R Coupons is a one stop Coupon Collection website.</p>
+                        <p>
+                            R Coupons is a one stop Coupon Collection website.
+                        </p>
                     </div>
                 </div>
                 <div className="collapse collapse-arrow bg-yellow-100">
