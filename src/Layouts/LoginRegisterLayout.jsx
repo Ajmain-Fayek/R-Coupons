@@ -5,7 +5,7 @@ import Footer from "../Components/Footer";
 
 const LoginRegisterLayout = () => {
     return (
-        <div>
+        <div className="font-sora">
             <Navigate to={"/user/login"} />
             <NavBar/>
             <Outlet />

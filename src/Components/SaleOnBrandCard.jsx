@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const SaleOnBrandCard = ({
     img,
@@ -7,9 +8,14 @@ const SaleOnBrandCard = ({
     category = "Category",
     cardColor = "bg-yellow-100",
 }) => {
+    const navigate = useNavigate()
+    const handleClick = () => {
+        navigate('/brands')
+    }
     return (
         <div
-            className={`${cardColor} flex sm:flex-row flex-col items-center sm:justify-between gap-2 max-w-screen-md mx-auto shadow-md p-4 rounded-lg`}
+            onClick={handleClick}
+            className={`${cardColor} cursor-pointer flex sm:flex-row flex-col items-center sm:justify-between gap-2 max-w-screen-md mx-auto shadow-md p-4 rounded-lg`}
         >
             <div className="flex sm:flex-row flex-col items-center gap-3">
                 <img

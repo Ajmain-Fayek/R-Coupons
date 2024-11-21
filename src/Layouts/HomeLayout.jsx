@@ -8,7 +8,7 @@ import Warning from "../Components/Warning";
 const HomeLayout = () => {
     const { user } = useContext(AuthContext);
     return (
-        <div>
+        <div className="font-sora">
             {/* Navbar */}
             <NavBar />
             {user &&
