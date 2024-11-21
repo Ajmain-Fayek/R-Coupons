@@ -11,16 +11,17 @@ import MyCoupons from "../Pages/MyCoupons";
 import UpdateProfile from "../Pages/UpdateProfile";
 import AboutDev from "../Pages/AboutDev";
 import ErrorPage from "../Pages/ErrorPage";
+import CouponsDetails from "../Pages/CouponsDetails";
 
 const routes = new createBrowserRouter([
     {
         path: "/error-occured",
-        errorElement: <ErrorPage/>
+        errorElement: <ErrorPage />,
     },
     {
         path: "/",
         element: <HomeLayout />,
-        errorElement: <ErrorPage/>,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: "/",
@@ -30,6 +31,7 @@ const routes = new createBrowserRouter([
             {
                 path: "/brands",
                 element: <Brands />,
+                loader: () => fetch("/CouponsData.json"),
             },
             {
                 path: "/about-dev",
@@ -60,12 +62,20 @@ const routes = new createBrowserRouter([
                 ),
             },
             {
-                path: "/brand",
-                element: <PrivateRoutes></PrivateRoutes>,
-            },
-            {
                 path: "/brand/:id",
-                element: <PrivateRoutes></PrivateRoutes>,
+                loader: async ({ params }) => {
+                     const res = await fetch("/CouponsData.json")
+                    const data = await res.json();
+                    const dataId =  data.find((d)=> d._id == params.id)
+                    console.log(params)
+                    console.log(dataId);
+                    return data
+                },
+                element: (
+                    <PrivateRoutes>
+                        <CouponsDetails />
+                    </PrivateRoutes>
+                ),
             },
         ],
     },

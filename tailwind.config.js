@@ -6,6 +6,9 @@ export default {
             fontFamily: {
                 sora: '"Sora", serif',
             },
+            animation: {
+                text: "infinite",
+            },
         },
     },
     daisyui: {
