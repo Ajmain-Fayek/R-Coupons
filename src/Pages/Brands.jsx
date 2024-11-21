@@ -32,7 +32,6 @@ const Brands = () => {
                 </button>
             </div>
             <div className="max-w-screen-2xl space-y-4 p-2 mx-auto">
-                {SectionTitle("Brands On Sale")}
                 {cardToShow.map(
                     (data, index) =>
                         data && (

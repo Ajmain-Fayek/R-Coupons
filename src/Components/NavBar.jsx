@@ -57,11 +57,6 @@ const NavBar = () => {
                     </li>
                 </ul>
                 <div className="sm:flex hidden items-center gap-4">
-                    {user && (
-                        <Link to="/my-coupons" className="link-hover">
-                            My Coupons
-                        </Link>
-                    )}
                     <Link
                         className="border rounded-full border-red-300 shadow-md"
                         to={user ? "/my-profile" : "/user/login"}
@@ -118,14 +113,6 @@ const NavBar = () => {
                                             className="hover:underline"
                                         >
                                             Profile
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link
-                                            to="/my-coupons"
-                                            className="hover:underline"
-                                        >
-                                            My Coupons
                                         </Link>
                                     </li>
                                 </>

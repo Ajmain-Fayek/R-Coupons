@@ -1,4 +1,4 @@
-import { createBrowserRouter, Navigate } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import LoginRegisterLayout from "../Layouts/LoginRegisterLayout";
@@ -7,7 +7,6 @@ import Profile from "../Pages/Profile";
 import HomeLayout from "../Layouts/HomeLayout";
 import PrivateRoutes from "./PrivateRoutes";
 import Brands from "../Pages/Brands";
-import MyCoupons from "../Pages/MyCoupons";
 import UpdateProfile from "../Pages/UpdateProfile";
 import AboutDev from "../Pages/AboutDev";
 import ErrorPage from "../Pages/ErrorPage";
@@ -38,14 +37,6 @@ const routes = new createBrowserRouter([
                 element: <AboutDev />,
             },
             {
-                path: "/my-coupons",
-                element: (
-                    <PrivateRoutes>
-                        <MyCoupons />
-                    </PrivateRoutes>
-                ),
-            },
-            {
                 path: "/my-profile",
                 element: (
                     <PrivateRoutes>
@@ -64,12 +55,10 @@ const routes = new createBrowserRouter([
             {
                 path: "/brand/:id",
                 loader: async ({ params }) => {
-                     const res = await fetch("/CouponsData.json")
+                    const res = await fetch("/CouponsData.json");
                     const data = await res.json();
-                    const dataId =  data.find((d)=> d._id == params.id)
-                    console.log(params)
-                    console.log(dataId);
-                    return data
+                    const dataId = data.find((d) => d._id == params.id);
+                    return dataId;
                 },
                 element: (
                     <PrivateRoutes>
@@ -94,10 +83,6 @@ const routes = new createBrowserRouter([
             },
         ],
     },
-    // {
-    //     path: "*",
-    //     element: <Navigate to={"/user/login"} />,
-    // },
 ]);
 
 export default routes;
