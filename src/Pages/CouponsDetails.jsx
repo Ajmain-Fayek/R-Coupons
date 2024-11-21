@@ -1,5 +1,6 @@
 import React from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
+import { Helmet } from "react-helmet-async";
 import { FaRegStarHalfStroke } from "react-icons/fa6";
 import { useLoaderData, Link } from "react-router-dom";
 import { toast, Bounce } from "react-toastify";
@@ -38,6 +39,9 @@ const CouponsDetails = () => {
     };
     return (
         <div className="mx-auto max-w-screen-2xl p-2 mb-36 md:mb-24">
+            <Helmet>
+                <title>{brand_name} | R Coupons</title>
+            </Helmet>
             <div className="bg-purple-50 px-4 py-6 shadow-md rounded-xl">
                 <div className="flex sm:flex-row flex-col items-center sm:justify-between gap-2 ">
                     <div className="flex sm:flex-row flex-col items-center gap-3">

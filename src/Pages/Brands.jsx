@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { useLoaderData } from "react-router-dom";
 import SectionTitle from "../Components/SectionTitle";
 import BrandsCard from "../Components/BrandsCard";
+import { Helmet } from "react-helmet-async";
 
 const Brands = () => {
     const data = useLoaderData();
@@ -19,6 +20,9 @@ const Brands = () => {
     ];
     return (
         <div className="mb-36 md:mb-24">
+            <Helmet>
+                <title>Brands | R Coupons</title>
+            </Helmet>
             {SectionTitle("Brands")}
             <div className="mb-4 flex items-center p-2 max-w-screen-xl rounded-md mx-auto">
                 <input

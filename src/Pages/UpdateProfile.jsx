@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../Context/AuthStateProvider";
 import { Link, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const UpdateProfile = () => {
-    const { updateUserInfo } = useContext(AuthContext);
+    const { updateUserInfo, user } = useContext(AuthContext);
     const [errorMsg, setErrorMsg] = useState("");
     const navigate = useNavigate();
     const handleUpdate = (e) => {
@@ -26,6 +27,9 @@ const UpdateProfile = () => {
     };
     return (
         <div className="mb-36 md:mb-24">
+            <Helmet>
+                <title>Update Profile | { user ? user.displayName : "R Coupons" }</title>
+            </Helmet>
             <div className="max-w-md mx-auto mt-10 p-2">
                 <p className="text-sm text-zinc-500 400 mb-6">
                     Please fill in the form to Update your account.

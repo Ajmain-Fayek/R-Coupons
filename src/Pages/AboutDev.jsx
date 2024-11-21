@@ -1,10 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaFacebookSquare, FaGithubSquare, FaLinkedin } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 const AboutDev = () => {
     return (
         <div className="flex border rounded-2xl shadow-xl mx-auto mt-2 max-w-[350px] flex-col items-center justify-center space-y-4 p-8 mb-32 md:mb-24">
+            <Helmet>
+                <title>About Developer of R Coupons</title>
+            </Helmet>
             <div className="group relative">
                 <img
                     width={110}

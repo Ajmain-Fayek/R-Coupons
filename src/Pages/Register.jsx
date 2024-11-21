@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthStateProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
     const { signUpWithEmailAndPassword, updateUserInfo } =
@@ -53,6 +54,9 @@ const Register = () => {
     };
     return (
         <div className="max-w-md mx-auto space-y-6 rounded-lg mb-28 p-10">
+            <Helmet>
+                <title>Register | R Coupons</title>
+            </Helmet>
             <div className="flex flex-col space-y-1">
                 <h3 className="text-3xl font-bold tracking-tight">Sign Up</h3>
                 <p className="text-sm text-zinc-500 400">

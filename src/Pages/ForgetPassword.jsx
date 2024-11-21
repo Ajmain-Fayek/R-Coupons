@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../Context/AuthStateProvider";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const ForgetPassword = () => {
     const { forgetPassword, getEmail, setEmail } = useContext(AuthContext);
@@ -31,6 +32,9 @@ const ForgetPassword = () => {
     };
     return (
         <div className="max-w-screen-sm mx-auto mb-36 md:mb-24 mt-10">
+            <Helmet>
+                <title>Reset Password | R Coupons</title>
+            </Helmet>
             <p className="text-sm text-zinc-500 400 mb-6">
                 Please Enter Your Account Linked email to reset your password.
             </p>
